@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160514181922) do
 
+  create_table "emails", force: :cascade do |t|
+    t.integer  "member_id",    limit: 4
+    t.string   "subject",      limit: 255
+    t.integer  "account_id",   limit: 4
+    t.string   "subject_type", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "addresses", force: :cascade do |t|
     t.string   "street1",    limit: 255
     t.string   "street2",    limit: 255
@@ -22,5 +31,4 @@ ActiveRecord::Schema.define(version: 20160514181922) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
 end
