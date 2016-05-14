@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+organization = Organization.create(name: 'vtracker ladies')
+
+p "Created #{Organization.count} organization"
+
+account = Account.create(organization_id: 1,
+                         email: 'vtracker_test@email.com',
+                         password: 'Password1')
+
+p "Created #{Account.count} account"

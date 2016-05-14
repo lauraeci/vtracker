@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :accounts
+  root 'accounts#show'
+
   resources :members
   resources :accounts
   resources :organizations
