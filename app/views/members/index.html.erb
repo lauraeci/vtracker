@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Members</h1>
+<table style="width: 100%">
+  <tr>
+    <td>
+      <h1>Members</h1>
+    </td>
+    <td>
+      <%= button_to "Add New Member", new_member_path, :method => "get" %>
+    </td>
+  </tr>
+</table>
 
-<table>
+<br><br>
+
+<table style="width: 100%">
   <thead>
     <tr>
       <th>Organization</th>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Age</th>
       <th>Hours worked</th>
-      <th>Last contacted at</th>
-      <th>Address</th>
+      <th>Last Contacted At</th>
+      <th>Donation Total</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,7 +40,7 @@
         <td><%= member.age %></td>
         <td><%= member.hours_worked %></td>
         <td><%= member.last_contacted_at %></td>
-        <td><%= render member.address, object: member.address %></td>
+        <td><%= member.donation_total %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

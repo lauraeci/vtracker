@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :accounts, :controllers => { registrations: 'registrations' }
-
-  root :to => "welcome#index", as: :authenticated
+  resources :donations
+  root :to => "welcome#index"
 
   resources :members
   resources :accounts
