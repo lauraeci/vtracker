@@ -1,5 +1,6 @@
-<h1>Welcome <%= current_account.email %>!</h1>
-
-<%= link_to "Members", members_path %>
-<br>
-<%= link_to "Send Email", new_email_path %>
+	<h1>Welcome <%= current_account.email %>!</h1>
+	<btn-block>
+		<%= link_to "Members", members_path, class:"btn btn-default btn-lg" %>
+		<%= link_to "Send Email", new_email_path, class:"btn btn-default btn-lg" %>
+		<%= link_to "View Account", accounts_path, class:"btn btn-default btn-lg" %>
+	</btn-block>
