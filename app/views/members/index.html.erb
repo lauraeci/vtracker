@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Members</h1>
+<table style="width: 100%">
+  <tr>
+    <td>
+      <h1>Members</h1>
+    </td>
+    <td>
+      <%= button_to "New Member", new_member_path, :method => "get" %>
+    </td>
+  </tr>
+</table>
+
+<br><br>
 
 <table>
   <thead>
