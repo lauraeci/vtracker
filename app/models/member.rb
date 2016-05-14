@@ -17,5 +17,13 @@ class Member < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def donation_total
+    sum = 0
+    donations.each do |donation|
+      sum += donation.amount
+    end
+    sum
+  end
+
 
 end
