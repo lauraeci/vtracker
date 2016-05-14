@@ -5,7 +5,8 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    organization_id = current_account.organization_id
+    @accounts = Organization.find(organization_id).accounts
   end
 
   # GET /accounts/1
