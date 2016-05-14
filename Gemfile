@@ -16,6 +16,8 @@ gem 'react-rails'
 
 gem 'turbolinks'
 
+gem 'mails_viewer'
+
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '~> 4.0'
