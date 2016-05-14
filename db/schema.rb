@@ -11,15 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514181922) do
+ActiveRecord::Schema.define(version: 20160514183557) do
 
-  create_table "emails", force: :cascade do |t|
-    t.integer  "member_id",    limit: 4
-    t.string   "subject",      limit: 255
-    t.integer  "account_id",   limit: 4
-    t.string   "subject_type", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "organization_id", limit: 4
+    t.string   "email",           limit: 255
+    t.string   "password",        limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -31,4 +30,22 @@ ActiveRecord::Schema.define(version: 20160514181922) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "emails", force: :cascade do |t|
+    t.integer  "member_id",    limit: 4
+    t.string   "subject",      limit: 255
+    t.integer  "account_id",   limit: 4
+    t.string   "subject_type", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.integer  "account_id", limit: 4
+    t.integer  "member_id",  limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
 end
