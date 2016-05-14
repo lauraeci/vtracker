@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @member.name %></h1>
+
 <p>
   <strong>Organization:</strong>
   <%= @member.organization_id %>
@@ -44,9 +46,13 @@
   <%= render @member.address %>
 </p>
 
+<h3>Donations</h3>
+<strong>Total: </strong><%= @member.donation_total %>
+
+<br><br>
+
 <table style="width: 100%">
   <thead>
-  <h2>Donations</h2>
   <tr>
     <th>Amount</th>
     <th>Date</th>
