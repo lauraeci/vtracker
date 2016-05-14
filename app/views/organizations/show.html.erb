@@ -5,5 +5,8 @@
   <%= @organization.name %>
 </p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<%= link_to 'Edit Organization', edit_organization_path(@organization) %> |
+
+</br>
+
+<%= link_to "View Accounts", accounts_path, class:"btn btn-default btn-lg" %>
