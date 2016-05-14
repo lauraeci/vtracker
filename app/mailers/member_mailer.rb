@@ -15,4 +15,10 @@ class MemberMailer < ApplicationMailer
     mail(to: member.email, subject: subject)
   end
 
+  def custom_email(member, current_account, opts = {})
+    @member = member
+    subject = opts[:subject]
+    body = opts[:body]
+    mail(to: member.email, subject: subject, body: body)
+  end
 end

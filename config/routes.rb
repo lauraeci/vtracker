@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :emails
   resources :addresses
-
+                          !
   mount MailsViewer::Engine => '/delivered_mails'
 
   # The priority is based upon order of creation: first created -> highest priority.
