@@ -2,6 +2,7 @@ class Member < ActiveRecord::Base
   belongs_to :organization
   has_many :emails
   has_one :address
+  has_many :donations
 
   validates_presence_of :organization_id
   validates_presence_of :first_name
