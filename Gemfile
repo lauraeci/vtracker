@@ -11,6 +11,8 @@ gem 'httparty'
 
 gem 'jquery-rails'
 
+gem 'react-rails'
+
 gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
