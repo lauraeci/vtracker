@@ -1,19 +1,18 @@
 class MemberMailer < ApplicationMailer
 
-  default from: 'lmrshall@email.com'
+  default from: 'vtracker_test@email.com'
 
-  def welcome_email(member)
-    @account = member.account
+  def welcome_email(member, current_account)
+    @member = member
     @url = 'http://localhost:3000/login'
     subject = "Welcome to #{member.organization.name}"
     email = Email.new
-    email.subject = subject
-    email.update_attribues.update(member_id: member.id,
-                                  account_id: account.id,
-                                  subject: subject,
-                                  subject_type: 'Welcome'
+    email.update_attributes!(member_id: member.id,
+                            account_id: current_account.id,
+                            subject: subject,
+                            subject_type: 'Welcome'
     )
-    mail(to: member.emails, subject: subject)
+    mail(to: member.email, subject: subject)
   end
 
 end

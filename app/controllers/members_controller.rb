@@ -29,7 +29,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.save
         # Tell the UserMailer to send a welcome email after save
-        MemberMailer.welcome_email(@member).deliver_later
+        MemberMailer.welcome_email(@member, current_account).deliver_later
 
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render action: 'show', status: :created, location: @member }

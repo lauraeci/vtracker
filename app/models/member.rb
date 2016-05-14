@@ -3,4 +3,8 @@ class Member < ActiveRecord::Base
   has_many :emails
   has_one :address
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
