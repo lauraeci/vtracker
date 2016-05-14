@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514202629) do
+ActiveRecord::Schema.define(version: 20160514223049) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "organization_id",        limit: 4
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20160514202629) do
     t.string   "city",       limit: 255
   end
 
+  create_table "donations", force: :cascade do |t|
+    t.decimal  "amount",               precision: 10
+    t.integer  "member_id",  limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "donations", ["member_id"], name: "index_donations_on_member_id", using: :btree
+
   create_table "emails", force: :cascade do |t|
     t.integer  "member_id",    limit: 4
     t.string   "subject",      limit: 255
@@ -65,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160514202629) do
     t.datetime "last_contacted_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "donation_id",       limit: 4
   end
 
   create_table "organizations", force: :cascade do |t|
