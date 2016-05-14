@@ -4,13 +4,9 @@ RSpec.describe "organizations/index", type: :view do
   before(:each) do
     assign(:organizations, [
       Organization.create!(
-        :account_id => 1,
-        :member_id => 2,
         :name => "Name"
       ),
       Organization.create!(
-        :account_id => 1,
-        :member_id => 2,
         :name => "Name"
       )
     ])
