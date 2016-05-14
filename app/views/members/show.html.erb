@@ -40,5 +40,9 @@
   <%= @member.last_contacted_at %>
 </p>
 
+<p>
+  <%= render @member.address %>
+</p>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
