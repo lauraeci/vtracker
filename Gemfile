@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'dotenv-rails', '~> 2.1.1'
 
 gem 'rails', '4.2.6'
 
