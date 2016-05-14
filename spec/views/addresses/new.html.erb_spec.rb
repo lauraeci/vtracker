@@ -5,9 +5,11 @@ RSpec.describe "addresses/new", type: :view do
     assign(:address, Address.new(
       :street1 => "MyString",
       :street2 => "MyString",
+      :city => "MyString",
       :state => "MyString",
       :country => "MyString",
-      :zipcode => 1
+      :zipcode => 1,
+      :member_id => 2
     ))
   end
 
@@ -20,11 +22,15 @@ RSpec.describe "addresses/new", type: :view do
 
       assert_select "input#address_street2[name=?]", "address[street2]"
 
+      assert_select "input#address_city[city=?]", "address[city]"
+
       assert_select "input#address_state[name=?]", "address[state]"
 
       assert_select "input#address_country[name=?]", "address[country]"
 
       assert_select "input#address_zipcode[name=?]", "address[zipcode]"
+
+      assert_select "input#address_member_id[member_id=?]", "address[member_id]"
     end
   end
 end

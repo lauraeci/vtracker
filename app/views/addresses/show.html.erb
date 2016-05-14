@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>City:</strong>
+  <%= @address.city %>
+</p>
+
+<p>
   <strong>State:</strong>
   <%= @address.state %>
 </p>
@@ -21,8 +26,13 @@
 </p>
 
 <p>
-  <strong>Zipcode:</strong>
+  <strong>ZIP Code:</strong>
   <%= @address.zipcode %>
+</p>
+
+<p>
+  <strong>Member ID:</strong>
+  <%= @address.member_id %>
 </p>
 
 <%= link_to 'Edit', edit_address_path(@address) %> |
