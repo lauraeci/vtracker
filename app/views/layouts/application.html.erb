@@ -11,6 +11,8 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<%= link_to "Logout", destroy_account_session_path, method: :delete if current_account %>
+
 <div class="container">
   <%= yield %>
 </div>
