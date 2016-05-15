@@ -15,3 +15,13 @@ account = Account.create(organization_id: 1,
                          password: 'Password1')
 
 p "Created #{Account.count} account"
+
+member = Member.create(organization_id: 1,
+                       email: 'vtracker_test@email.com',
+                       phone: '5555555555',
+                       age: 99,
+                       first_name: 'happy',
+                       last_name: 'volunteer')
+
+p "Created #{Member.count} member"
+

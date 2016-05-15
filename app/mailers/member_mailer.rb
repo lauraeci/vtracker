@@ -8,9 +8,9 @@ class MemberMailer < ApplicationMailer
     subject = "Welcome to #{member.organization.name}"
     email = Email.new
     email.update_attributes!(member_id: member.id,
-                            account_id: current_account.id,
-                            subject: subject,
-                            subject_type: 'Welcome'
+                             account_id: current_account.id,
+                             subject: subject,
+                             subject_type: 'Welcome'
     )
     mail(to: member.email, subject: subject)
   end
@@ -24,13 +24,13 @@ class MemberMailer < ApplicationMailer
                              account_id: current_account.id,
                              subject: subject,
                              subject_type: 'Donation'
-                             )
+    )
     mail(to: member.email, subject: subject)
   end
 
   def donation_summary_email(member, current_account)
     current_year = Date.current.year
-    prev_year = current_year -1 
+    prev_year = current_year -1
     @member = member
     @url = 'http://localhost:3000/login'
     subject = "Year to end donation summary for the year #{prev_year}"
@@ -39,8 +39,14 @@ class MemberMailer < ApplicationMailer
                              account_id: current_account.id,
                              subject: subject,
                              subject_type: 'Donation Summary'
-                             )
+    )
     mail(to: member.email, subject: subject)
+  end
 
+  def custom_email(member, current_account, opts = {})
+    @member = member
+    subject = opts[:subject]
+    body = opts[:body]
+    mail(to: member.email, subject: subject, body: body)
   end
 end

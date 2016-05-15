@@ -26,8 +26,24 @@ class EmailsController < ApplicationController
   def create
     @email = Email.new(email_params)
 
+    success = false
+
     respond_to do |format|
       if @email.save
+        opts = {
+            subject: params[:email][:subject],
+            body: params[:email][:body]
+        }
+        member_id = params[:email][:member_id]
+        if member_id
+          @member = Member.find member_id
+          success = MemberMailer.custom_email(@member, current_account, opts).deliver_now
+        else
+          success = false
+        end
+      end
+
+      if success
         format.html { redirect_to @email, notice: 'Email was successfully created.' }
         format.json { render action: 'show', status: :created, location: @email }
       else
@@ -62,13 +78,13 @@ class EmailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_email
-      @email = Email.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_email
+    @email = Email.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def email_params
-      params.require(:email).permit(:member_id, :subject, :account_id, :subject_type)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def email_params
+    params.require(:email).permit(:member_id, :subject, :account_id, :subject_type)
+  end
 end

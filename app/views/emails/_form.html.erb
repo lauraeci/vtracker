@@ -1,33 +1,44 @@
-<%= form_for(@email) do |f| %>
-  <% if @email.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@email) do |f| %>
+        <% if @email.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
 
-      <ul>
-      <% @email.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+              <ul>
+                <% @email.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :member_id %><br>
-    <%= f.number_field :member_id %>
+
+        <h2>Email Member</h2>
+        <div class="field">
+          <%= select "member", "member_id", Member.all.collect { |p| [p.name, p.id] }, {include_blank: 'None'}, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :subject %><br>
+          <%= f.text_field :subject, class: "form-control" %>
+        </div>
+
+        <%= hidden_field_tag('Account', value = current_account) %>
+
+        <div class="field">
+          <%= f.label :subject_type %><br>
+          <%= f.text_field :subject_type, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= label_tag 'body' %><br>
+          <%= text_area_tag 'body' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Send Email", class: "btn btn-default" %>
+        </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :account_id %><br>
-    <%= f.number_field :account_id %>
-  </div>
-  <div class="field">
-    <%= f.label :subject_type %><br>
-    <%= f.text_field :subject_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
