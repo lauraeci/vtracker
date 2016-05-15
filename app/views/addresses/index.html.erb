@@ -2,7 +2,7 @@
 
 <h1>Listing Addresses</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Address Line 1</th>
@@ -24,9 +24,9 @@
         <td><%= address.state %></td>
         <td><%= address.country %></td>
         <td><%= address.zipcode %></td>
-        <td><%= link_to 'Show', address %></td>
+        <td><%= link_to 'View', address %></td>
         <td><%= link_to 'Edit', edit_address_path(address) %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
