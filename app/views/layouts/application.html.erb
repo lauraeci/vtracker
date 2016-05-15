@@ -11,7 +11,21 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= link_to "Logout", destroy_account_session_path, class: 'pull-right',  method: :delete if current_account %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><%= image_tag("VW_Logo.png", height: '30') %></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Members', members_path if current_account %></li>
+      <li><%= link_to 'Send Email', new_email_path if current_account %></li>
+      <li><%= link_to 'Edit Account Email', edit_account_path(current_account.id) if current_account %></li>
+      <li><%= link_to 'View Organization', organization_path(current_account.organization_id) if current_account %></li>
+      <li><%= link_to "Logout", destroy_account_session_path, class: 'pull-right', method: :delete if current_account %></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container">
   <%= yield %>
