@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'ffaker'
-organization = Organization.create(name: 'vtracker ladies')
+organization = Organization.create(name: 'vtracker ladies',
+                                   tax_id: "SN18924-2BD2-289S")
 
 p "Created #{Organization.count} organization"
 
