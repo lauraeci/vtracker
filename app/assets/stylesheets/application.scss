@@ -14,3 +14,27 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.btn {
+  border-radius: 4px;
+  background-color: greenyellow;
+  border: 0;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  color: #FFF;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 3;
+  height: 50px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btn:active,
+.btn:focus,
+.btn:hover {
+  background-color: #AEEA00;
+  color: #E3E3E3;
+}

@@ -12,6 +12,7 @@
     <% end %>
 
 
+    <h2>Email Member</h2>
     <div class="field">
       <%= select("member", "member_id", Member.all.collect { |p| [p.name, p.id] }, {include_blank: 'None'}) %>
     </div>
@@ -33,7 +34,7 @@
       <%= text_area_tag 'body' %>
     </div>
 
-    <div class="actions">
-      <%= f.submit, "Send" %>
+    <div class="submit">
+      <%= f.submit("Send Email") %>
     </div>
 <% end %>
