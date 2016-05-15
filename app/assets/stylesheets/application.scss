@@ -18,13 +18,12 @@
 
 .btn {
   border-radius: 4px;
-  background-color: greenyellow;
+  background-color: #f0a021;
   border: 0;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  //border-bottom: 4px solid #e39821;
   color: #FFF;
   display: inline-block;
   font-weight: bold;
-  line-height: 3;
   height: 50px;
   width: 200px;
   position: relative;
@@ -35,6 +34,6 @@
 .btn:active,
 .btn:focus,
 .btn:hover {
-  background-color: #AEEA00;
+  background-color: #e39821;
   color: #E3E3E3;
 }
