@@ -23,6 +23,12 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
+
+  <div class="field form-group">
+    <%= f.label :roles %><br>
+    <%= f.select :roles, Member::ROLES.map {|m| [m.capitalize, m]}, {}, {:multiple => true, class: "input-lg"} %>
+  </div>
+
   <div class="field form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
