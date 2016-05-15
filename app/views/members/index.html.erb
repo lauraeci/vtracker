@@ -1,19 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<table style="width: 100%">
-  <tr>
-    <td>
-      <h1>Members</h1>
-    </td>
-    <td>
-      <%= button_to "Add New Member", new_member_path, :method => "get" %>
-    </td>
-  </tr>
-</table>
+<h1>Members</h1>
 
-<br><br>
+<%= link_to "Add New Member", new_member_path, :method => "get", class:"btn btn-default btn-lg pull-right" %>
 
-<table style="width: 100%">
+<br>
+
+<table class="table">
   <thead>
     <tr>
       <th>Organization</th>
@@ -32,25 +25,23 @@
 
   <tbody>
     <% @members.each do |member| %>
-      <tr>
-        <td><%= member.organization_id %></td>
-        <td><%= member.first_name %></td>
-        <td><%= member.last_name %></td>
-        <td><%= member.formatted_roles %></td>
-        <td><%= member.email %></td>
-        <td><%= member.phone %></td>
-        <td><%= member.age %></td>
-        <td><%= member.hours_worked %></td>
-        <td><%= member.last_contacted_at %></td>
-        <td><%= member.donation_total %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= member.organization_id %></td>
+      <td><%= member.first_name %></td>
+      <td><%= member.last_name %></td>
+      <td><%= member.formatted_roles %></td>
+      <td><%= member.email %></td>
+      <td><%= member.phone %></td>
+      <td><%= member.age %></td>
+      <td><%= member.hours_worked %></td>
+      <td><%= member.last_contacted_at %></td>
+      <td><%= number_to_currency(member.donation_total) %></td>
+      <td><%= link_to 'Show', member %></td>
+      <td><%= link_to 'Edit', edit_member_path(member) %></td>
+      <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Member', new_member_path %>

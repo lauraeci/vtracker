@@ -15,6 +15,7 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new
+    @member = Member.find(params[:member_id])
   end
 
   # GET /donations/1/edit
@@ -25,10 +26,11 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    @member = @donation.member
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
+        format.html { redirect_to @donation.member, notice: 'Donation was successfully recorded.' }
         format.json { render action: 'show', status: :created, location: @donation }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class DonationsController < ApplicationController
   def update
     respond_to do |format|
       if @donation.update(donation_params)
-        format.html { redirect_to @donation, notice: 'Donation was successfully updated.' }
+        format.html { redirect_to @donation.member, notice: 'Donation was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -15,11 +15,9 @@
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
-  <div class="field">
-    <%= f.label :member_id %><br>
-    <%= f.text_field :member_id %>
-  </div>
+
+  <%= f.hidden_field( "member_id", { :value => @member.id } ) %>
   <div class="actions">
-    <%= f.submit, 'Add Donation' %>
+    <%= f.submit 'Add Donation' %>
   </div>
 <% end %>
