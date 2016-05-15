@@ -32,9 +32,9 @@ class EmailsController < ApplicationController
       if @email.save
         opts = {
             subject: params[:email][:subject],
-            body: params[:email][:body]
+            body: params[:body]
         }
-        member_id = params[:email][:member_id]
+        member_id = params[:member][:member_id]
         if member_id
           @member = Member.find member_id
           success = MemberMailer.custom_email(@member, current_account, opts).deliver_now

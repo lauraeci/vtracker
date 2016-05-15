@@ -48,5 +48,6 @@ class MemberMailer < ApplicationMailer
     subject = opts[:subject]
     body = opts[:body]
     mail(to: member.email, subject: subject, body: body)
+    true
   end
 end
