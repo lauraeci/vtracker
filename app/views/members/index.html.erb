@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<table style="width: 100%">
+<table class="table">
   <tr>
     <td>
       <h1>Members</h1>
     </td>
     <td>
-      <%= button_to "Add New Member", new_member_path, :method => "get" %>
+      <%= link_to "Add New Member", new_member_path, :method => "get" %>
     </td>
   </tr>
 </table>
 
 <br><br>
 
-<table style="width: 100%">
+<table class="table">
   <thead>
     <tr>
       <th>Organization</th>
@@ -40,7 +40,7 @@
         <td><%= member.age %></td>
         <td><%= member.hours_worked %></td>
         <td><%= member.last_contacted_at %></td>
-        <td><%= member.donation_total %></td>
+        <td><%= number_to_currency(member.donation_total) %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -50,5 +50,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Member', new_member_path %>
