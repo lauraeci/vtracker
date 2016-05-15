@@ -52,12 +52,12 @@
 
     <%= f.fields_for :address do |ff| %>
         <div class="field form-group">
-          <%= ff.label :street1 %><br>
-          <%= ff.text_field :street1, class: 'form-control' %>
+          <%= ff.label :street1, "Address Line 1" %><br>
+          <%= ff.text_field :street1 %>
         </div>
         <div class="field form-group">
-          <%= ff.label :street2 %><br>
-          <%= ff.text_field :street2, class: 'form-control' %>
+          <%= ff.label :street2, "Address Line 2" %><br>
+          <%= ff.text_field :street2 %>
         </div>
         <div class="field form-group">
           <%= ff.label :city %><br>
