@@ -3,6 +3,7 @@ class Member < ActiveRecord::Base
   has_many :emails
   has_one :address
   has_many :donations
+  serialize :roles
 
   validates_presence_of :organization_id
   validates_presence_of :first_name
@@ -12,6 +13,8 @@ class Member < ActiveRecord::Base
   validates_presence_of :age
 
   accepts_nested_attributes_for :address
+
+  ROLES = %w(donor volunteer intern)
 
   def name
     "#{first_name} #{last_name}"
@@ -25,5 +28,10 @@ class Member < ActiveRecord::Base
     sum
   end
 
-
+  def formatted_roles
+    if roles
+      roles.delete("")
+      roles.join(", ")
+    end
+  end
 end
