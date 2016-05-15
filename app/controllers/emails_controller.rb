@@ -10,6 +10,8 @@ class EmailsController < ApplicationController
   # GET /emails/1
   # GET /emails/1.json
   def show
+    @member = Member.find @email.member_id
+    @account = Account.find @email.account_id
   end
 
   # GET /emails/new
