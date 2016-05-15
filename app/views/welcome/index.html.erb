@@ -1,5 +1,8 @@
-	<h1>Welcome <%= current_account.email %>!</h1>
+
+<h1>Welcome to the <%= current_account.organization.name %> organization!</h1>
+</br></br>
 	<btn-block>
 		<%= link_to "Members", members_path, class:"btn btn-default btn-lg" %>
 		<%= link_to "Send Email", new_email_path, class:"btn btn-default btn-lg" %>
 	</btn-block>
+
