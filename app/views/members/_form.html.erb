@@ -13,29 +13,29 @@
 
   <div class="field form-group">
     <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
+    <%= f.number_field :organization_id, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
   </div>
 
   <div class="field form-group">
     <%= f.label :roles %><br>
-    <%= f.select :roles, Member::ROLES.map {|m| [m.capitalize, m]}, {}, {:multiple => true, class: "input-lg"} %>
+    <%= f.select :roles, Member::ROLES.map {|m| [m.capitalize, m]}, {}, {:multiple => true, class: "input-lg form-control"} %>
   </div>
 
   <div class="field form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :age %><br>
@@ -43,11 +43,11 @@
   </div>
   <div class="field form-group">
     <%= f.label :hours_worked %><br>
-    <%= f.number_field :hours_worked %>
+    <%= f.number_field :hours_worked, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :last_contacted_at %><br>
-    <%= f.datetime_select :last_contacted_at %>
+    <%= f.datetime_select :last_contacted_at, class: 'form-control' %>
   </div>
 
     <%= f.fields_for :address do |ff| %>
@@ -61,19 +61,19 @@
         </div>
         <div class="field form-group">
           <%= ff.label :city %><br>
-          <%= ff.text_field :city %>
+          <%= ff.text_field :city, class: 'form-control' %>
         </div>
         <div class="field form-group">
           <%= ff.label :state %><br>
-          <%= ff.text_field :state %>
+          <%= ff.text_field :state, class: 'form-control' %>
         </div>
         <div class="field form-group">
           <%= ff.label :country %><br>
-          <%= ff.text_field :country %>
+          <%= ff.text_field :country, class: 'form-control' %>
         </div>
         <div class="field form-group">
           <%= ff.label :zipcode %><br>
-          <%= ff.number_field :zipcode %>
+          <%= ff.number_field :zipcode, class: 'form-control' %>
         </div>
     <% end %>
 

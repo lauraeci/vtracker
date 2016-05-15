@@ -24,6 +24,8 @@ gem 'devise', '~> 4.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'ffaker'
+
 group :test, :development do
   gem 'better_errors'
   gem 'rspec-rails', '3.2.3'
