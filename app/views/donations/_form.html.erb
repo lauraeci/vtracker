@@ -16,9 +16,8 @@
     <%= f.text_field :amount %>
   </div>
 
-    <%= f.hidden_field( "member_id", { :value => @member.id } ) %>
-
-        <div class="actions">
-    <%= f.submit %>
+  <%= f.hidden_field( "member_id", { :value => @member.id } ) %>
+  <div class="actions">
+    <%= f.submit 'Add Donation' %>
   </div>
 <% end %>
