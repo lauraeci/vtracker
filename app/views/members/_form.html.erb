@@ -11,67 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :organization_id %><br>
     <%= f.number_field :organization_id %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
+
+  <div class="field form-group">
+    <%= f.label :roles %><br>
+    <%= f.select :roles, Member::ROLES.map {|m| [m.capitalize, m]}, {}, {:multiple => true, class: "input-lg"} %>
+  </div>
+
+  <div class="field form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :hours_worked %><br>
     <%= f.number_field :hours_worked %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :last_contacted_at %><br>
     <%= f.datetime_select :last_contacted_at %>
   </div>
 
     <%= f.fields_for :address do |ff| %>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :street1 %><br>
           <%= ff.text_field :street1 %>
         </div>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :street2 %><br>
           <%= ff.text_field :street2 %>
         </div>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :city %><br>
           <%= ff.text_field :city %>
         </div>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :state %><br>
           <%= ff.text_field :state %>
         </div>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :country %><br>
           <%= ff.text_field :country %>
         </div>
-        <div class="field">
+        <div class="field form-group">
           <%= ff.label :zipcode %><br>
           <%= ff.number_field :zipcode %>
         </div>
     <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", class: "btn btn-default" %>
   </div>
 <% end %>
