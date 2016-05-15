@@ -46,12 +46,23 @@
   <%= render @member.address %>
 </p>
 
-<h3>Donations</h3>
-<strong>Total: </strong><%= @member.donation_total %>
+
+<table class="table">
+  <tr>
+    <td>
+      <h3>Donations</h3>
+    </td>
+    <td>
+      <%= link_to "Record Donation", new_donation_path(:member_id => @member.id), :method => "get" %>
+    </td>
+  </tr>
+</table>
+
+<strong>Total: </strong><%= number_to_currency(@member.donation_total) %>
 
 <br><br>
 
-<table style="width: 100%">
+<table class="table">
   <thead>
   <tr>
     <th>Amount</th>
@@ -63,7 +74,7 @@
   <tbody>
   <% @member.donations.each do |donation| %>
       <tr>
-        <td><%= donation.amount %></td>
+        <td><%= number_to_currency(donation.amount) %></td>
         <td><%= donation.created_at %></td>
       </tr>
   <% end %>
