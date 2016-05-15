@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, class: 'form-control' %>
   </div>
 
   <%= f.hidden_field( "member_id", { :value => @member.id } ) %>
   <div class="actions">
-    <%= f.submit 'Add Donation' %>
+    <%= f.submit 'Add Donation', class: 'btn' %>
   </div>
 <% end %>
