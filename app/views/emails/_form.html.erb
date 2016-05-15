@@ -27,11 +27,6 @@
         <%= hidden_field_tag('Account', value = current_account) %>
 
         <div class="field">
-          <%= f.label :subject_type %><br>
-          <%= f.text_field :subject_type, class: "form-control" %>
-        </div>
-
-        <div class="field">
           <%= label_tag 'body' %><br>
           <%= text_area_tag 'body', nil, size: "77x10" %>
         </div>
